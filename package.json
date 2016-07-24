@@ -1,20 +1,18 @@
 {
-  "name": "158032-pink",
+  "name": "mailbox",
   "version": "0.1.0",
   "private": true,
-  "description": "Личный проект «Пинк» от HTML Academy",
-  "author": "Aleksandrs Goncaruks",
+  "description": "Poor man's Gmail:)",
+  "author": "Alexander Goncharuk",
   "repository": {
     "type": "git",
-    "url": "git@github.com:htmlacademy-adaptive/158032-pink.git"
+    "url": "git@github.com:htmlacademy-adaptive/mailbox.git"
   },
-  "bugs": {
-    "url": "https://github.com/htmlacademy-adaptive/158032-pink/issues"
-  },
-  "homepage": "https://github.com/htmlacademy-adaptive/158032-pink",
+  "homepage": "https://github.com/aGoncharuks/mailbox",
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "browser-sync": "2.12.10",
+    "browserify": "^13.0.1",
     "css-mqpacker": "^5.0.1",
     "del": "^2.2.1",
     "editorconfig-tools": "0.1.1",
@@ -27,7 +25,8 @@
     "gulp-sass": "2.3.1",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
-    "run-sequence": "^1.2.1"
+    "run-sequence": "^1.2.1",
+    "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
     "test": "editorconfig-tools check *",
@@ -38,6 +37,7 @@
     "node": "5.11"
   },
   "dependencies": {
+    "angular": "^1.5.8",
     "normalize.scss": "^0.1.0"
   }
 }

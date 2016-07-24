@@ -14,7 +14,18 @@ var svgstore = require("gulp-svgstore");
 var svgmin = require("gulp-svgmin");
 var run = require("run-sequence");
 var del = require("del");
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
 
+
+
+gulp.task('browserify', function() {
+  return browserify('./js/app.js')
+  .bundle()
+  .pipe(source('script.js'))
+  .pipe(gulp.dest('./js'))
+  .pipe(server.reload({stream: true}));
+});
 
 gulp.task("style", function() {
   gulp.src("sass/style.scss")
@@ -54,7 +65,7 @@ gulp.task("styleForDev", function() {
         sort: false
       })
     ]))
-    .pipe(gulp.dest("build/css"))
+    .pipe(gulp.dest("css"))
     .pipe(server.reload({stream: true}));
 });
 
@@ -80,7 +91,7 @@ gulp.task("symbols", function() {
 
 gulp.task("serve", function() {
   server.init({
-    server: "build",
+    server: ".",
     notify: false,
     open: true,
     ui: false
@@ -88,7 +99,8 @@ gulp.task("serve", function() {
 
   gulp.watch("sass/**/*.{scss,sass}", ["styleForDev"]);
   gulp.watch("*.html").on("change", server.reload);
-  gulp.watch("js/**/*.js").on("change", server.reload);
+  gulp.watch("js/**/*.js", ["browserify"]);
+  // gulp.watch("js/**/*.js").on("change", server.reload);
 
 });
 
@@ -115,6 +127,7 @@ gulp.task("build", function(fn) {
     "style",
     "images",
     "symbols",
+    'browserify',
     fn
   );
 });

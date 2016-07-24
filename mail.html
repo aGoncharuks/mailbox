@@ -1,0 +1,7 @@
+<div ng-init="$ctrl.mail.showContent = false" ng-click="$ctrl.mail.showContent = !$ctrl.mail.showContent" class="mail-row">
+  <span class="mail-column mail-column--name">{{$ctrl.mail.author}}</span>
+  <span class="mail-column mail-column--subject">{{$ctrl.mail.subject}}</span>
+  <span class="mail-column mail-column--content" ng-show="!$ctrl.mail.showContent">{{$ctrl.mail.content | limitTo : 30}}...</span>
+  <span class="mail-column mail-column--date">{{$ctrl.mail.date}}</span>
+  <p class="mail-content-full" ng-show="$ctrl.mail.showContent">{{$ctrl.mail.content}}</p>
+</div>
