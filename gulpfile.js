@@ -27,16 +27,27 @@ gulp.task('browserify', function() {
     debug: true
   })
   .bundle()
+  .pipe(plumber())
   .pipe(source('script.js'))
   // .pipe(buffer())
   // .pipe(sourcemaps.init({loadMaps: true}))
   // .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('./js'))
+  .pipe(gulp.dest('./build/js'))
   .pipe(server.reload({stream: true}));
 });
 
+gulp.task("html", function() {
+  return gulp.src([
+      "*.html"
+    ], {
+      base: "."
+    })
+    .pipe(gulp.dest("build"))
+    .pipe(server.reload({stream: true}));
+});
+
 gulp.task("style", function() {
-  gulp.src("sass/style.scss")
+  gulp.src("sass/main.scss")
     .pipe(plumber())
     .pipe(sass())
     .pipe(postcss([
@@ -51,14 +62,14 @@ gulp.task("style", function() {
         sort: false
       })
     ]))
-    .pipe(gulp.dest("build/css"))
     .pipe(minify())
-    .pipe(rename("style.min.css"))
+    .pipe(rename("main.min.css"))
     .pipe(gulp.dest("build/css"))
+    .pipe(server.reload({stream: true}));
 });
 
 gulp.task("styleForDev", function() {
-  gulp.src("sass/style.scss")
+  gulp.src("sass/main.scss")
     .pipe(plumber())
     .pipe(sass())
     .pipe(postcss([
@@ -99,14 +110,15 @@ gulp.task("symbols", function() {
 
 gulp.task("serve", function() {
   server.init({
-    server: ".",
+    server: "./build",
     notify: false,
     open: true,
     ui: false
   });
 
-  gulp.watch("sass/**/*.{scss,sass}", ["styleForDev"]);
-  gulp.watch("*.html").on("change", server.reload);
+  // gulp.watch("sass/**/*.{scss,sass}", ["styleForDev"]);
+  gulp.watch("sass/**/*.{scss,sass}", ["style"]);
+  gulp.watch("*.html", ['html']);
   gulp.watch("js/**/*.js", ["browserify"]);
   // gulp.watch("js/**/*.js").on("change", server.reload);
 
@@ -133,6 +145,7 @@ gulp.task("build", function(fn) {
     "clean",
     "copy",
     "style",
+    // "styleForDev",
     "images",
     "symbols",
     'browserify',

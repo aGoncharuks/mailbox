@@ -1,0 +1,29 @@
+<div ng-init="$ctrl.showNewContactForm = false">
+
+  <div class="sidebar col-sm-2" ng-show="!$ctrl.showNewContactForm">
+    <button class="new-contact btn btn-success" ng-click="$ctrl.showNewContactForm = !$ctrl.showNewContactForm">
+      Add new contact
+    </button>
+  </div><!-- sidebar -->
+
+
+  <newcontact show-new-contact-form="$ctrl.showNewContactForm" users="$ctrl.users" ng-show="$ctrl.showNewContactForm"></newcontact>
+
+  <ul class="users-list col-sm-10 pull-right">
+    <li ng-repeat="user in $ctrl.users">
+        <div class="avatar-wrapper col-sm-2">
+          <img ng-src="{{user.avatarUrl}}" alt="User avatar" width="100" height="100" class="img-circle">
+        </div>
+        <table class="table table-user-information col-sm-10">
+        <tbody>
+          <tr><td>Полное имя</td><td>{{user.fullName}}</td></tr>
+          <tr><td>Дата рождения</td><td>{{user.birthdate |  date:'dd-MM-dd'}}</td></tr>
+          <tr><td>Пол</td><td>{{user.gender}}</td></tr>
+          <tr><td>Адрес</td><td>{{user.address}}</td></tr>
+          <tr><td>Email</td><td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
+        </tbody>
+     </table>
+    </li>
+  </ul>
+
+</div>

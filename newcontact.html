@@ -1,0 +1,30 @@
+<form class="col-sm-10 center-block" name="newUserForm" class="new-contact-form">
+  <div class="form-group">
+    <label for="fullname">Full name</label>
+    <input type="text" class="form-control" id="fullname" ng-model="$ctrl.newUser.fullName">
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <select id="gender" ng-model="$ctrl.newUser.gender">
+      <option value="M">M</option>
+      <option value="F">F</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input type="email" class="form-control" id="email" placeholder="example@gmail.com" ng-model="$ctrl.newUser.email">
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address" ng-model="$ctrl.newUser.address">
+  </div>
+  <div class="form-group">
+    <label for="birthdate">Birth date</label>
+    <input type="date" class="form-control" id="birthdate" placeholder="DD/MM/YYYY" ng-model="$ctrl.newUser.birthdate">
+  </div>
+  <div class="form-group">
+    <label for="avatarurl">Avatarl URL</label>
+    <input type="url" class="form-control" id="avatarurl" placeholder="URL to your avatar" ng-model="$ctrl.newUser.avatarUrl">
+  </div>
+  <button type="submit" ng-if="$ctrl.showNewContactForm" class="btn btn-default" ng-click="$ctrl.addUser()">Add contact</button>
+</form>

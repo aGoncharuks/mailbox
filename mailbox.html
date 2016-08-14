@@ -1,8 +1,68 @@
-<div class="container">
-     <div class="content-container clearfix">
-         <div class="col-md-12" ng-repeat="mail in $ctrl.mails">
-               <mail mail="mail"></mail>
-         </div>
-     </div>
-     <button style="margin: 20px auto; display:block;" id="some-id" ng-click="$ctrl.hideElement('#some-id')">JS modules test: click to hide me</button>
+<div class="container-fluid" ng-init="$ctrl.showContacts = false">
+  <header class="row mailbox-header">
+
+    <div class="profile col-sm-4">
+      <ul class="profile-icons list-inline pull-left">
+        <li>Alexander Goncharuk</li>
+        <li>
+          <img src="img/profile.jpg" class="img-circle">
+        </li>
+      </ul>
+    </div><!-- profile -->
+
+    <!-- <div class="search-bar col-sm-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-main">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+      <span class="arrow caret"></span>
+    </div> -->
+
+  </header>
+
+  <!-- <div class="control-bar row">
+    <div class="menu col-sm-2">
+
+    </div>
+
+    <div class="controls col-sm-10">
+      <ul class="control-list list-inline">
+        <li>
+          <button class="btn btn-control">
+            <input type="checkbox" class="mail-select">
+            <span class="caret"></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+
+  <div class="mail row" ng-show="!$ctrl.showContacts">
+    <div class="sidebar col-sm-2">
+
+      <a ui-sref="mailbox.newletter" class="compose btn btn-danger">Compose</a>
+
+      <ul class="inbox-sections list-unstyled">
+        <li>
+          <a ui-sref="mailbox.inbox.mails" ui-sref-active="active">Inbox ({{$ctrl.inboxLettersCount}})</a>
+        </li>
+        <li>
+          <a ui-sref="mailbox.outbox.mails" ui-sref-active="active">Outbox ({{$ctrl.outboxLettersCount}})</a>
+        </li>
+        <li>
+          <a ui-sref="mailbox.contacts" ui-sref-active="active">Contacts({{$ctrl.usersCount}})</a>
+        </li><br>
+      </ul>
+    </div><!-- sidebar -->
+
+    <ui-view></ui-view>
+
+  </div>
+
+  <!-- <button style="margin: 20px auto; display:block;" id="some-id" ng-click="$ctrl.hideElement('#some-id')" ng-show="!$ctrl.showContacts">JS modules working test: click to hide me</button> -->
+
 </div>

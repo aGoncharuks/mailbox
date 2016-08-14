@@ -1,2 +1,1 @@
-# gulp-template
-gulpfile.js general configuration
+Poor man's Gmail:)

@@ -6,7 +6,7 @@
   "author": "Alexander Goncharuk",
   "repository": {
     "type": "git",
-    "url": "git@github.com:htmlacademy-adaptive/mailbox.git"
+    "url": "https://github.com/aGoncharuks/mailbox.git"
   },
   "homepage": "https://github.com/aGoncharuks/mailbox",
   "devDependencies": {

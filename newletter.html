@@ -1,0 +1,15 @@
+<form class="col-sm-10 center-block" name="newLetterForm" class="new-contact-form">
+  <div class="form-group">
+    <label for="email">To</label>
+    <input type="email" class="form-control" id="email" placeholder="example@gmail.com" ng-model="$ctrl.newLetter.to">
+  </div>
+  <div class="form-group">
+    <label for="fullname">Subject</label>
+    <input type="text" class="form-control" id="fullname" ng-model="$ctrl.newLetter.subject">
+  </div>
+  <div class="form-group">
+    <label for="body"></label>
+    <p><textarea rows="10" cols="100" name="text" id="body" ng-model="$ctrl.newLetter.body"></textarea></p>
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="$ctrl.addLetter()">Send</button>
+</form>
