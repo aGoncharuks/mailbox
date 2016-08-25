@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-init="$ctrl.showContacts = false">
+<div class="container-fluid">
   <header class="row mailbox-header">
 
     <div class="profile col-sm-4">
@@ -48,13 +48,13 @@
 
       <ul class="inbox-sections list-unstyled">
         <li>
-          <a ui-sref="mailbox.inbox.mails" ui-sref-active="active">Inbox ({{$ctrl.inboxLettersCount}})</a>
+          <a ui-sref="mailbox.inbox.mails" ng-class="{active: $ctrl.stateIncludesInbox()}">Inbox ({{$ctrl.inboxLettersCount}})</a>
         </li>
         <li>
-          <a ui-sref="mailbox.outbox.mails" ui-sref-active="active">Outbox ({{$ctrl.outboxLettersCount}})</a>
+          <a ui-sref="mailbox.outbox.mails" ng-class="{active: $ctrl.stateIncludesOutbox()}">Outbox ({{$ctrl.outboxLettersCount}})</a>
         </li>
         <li>
-          <a ui-sref="mailbox.contacts" ui-sref-active="active">Contacts({{$ctrl.usersCount}})</a>
+          <a ui-sref="mailbox.contacts" ui-sref-active="active">Contacts ({{$ctrl.usersCount}})</a>
         </li><br>
       </ul>
     </div><!-- sidebar -->

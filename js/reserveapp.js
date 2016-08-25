@@ -1,4 +1,4 @@
- var app = angular.module('gmailForPoor', ['ui.router', 'firebase']);
+ var app = angular.module('gmailForPoor', ['ui.router']);
 
  app.config( ($stateProvider, $urlRouterProvider) => {
 
@@ -6,17 +6,8 @@
   $urlRouterProvider.otherwise('/inbox/mails');
 
   $stateProvider.state('login', {
-     url: '/login',
-     template: '<login></login>',
-     controller: function(authorizationService) {
-
-       var credentials = firebase.database().ref().child('credentials');
-       credentials.once('value').then(snapshot => {
-         authorizationService.login = snapshot.val().login.toString();
-         authorizationService.password = snapshot.val().password.toString();
-       });
-     }
-
+               url: '/login',
+               template: '<login></login>'
   });
   $stateProvider.state('mailbox', {
     abstract: true,
@@ -126,34 +117,32 @@
    }
  });
 
- app.service('authorizationService', function($http) {
+ app.service('authorizationService', function($http, $q) {
+   this.baseUrl = `https://test-api.javascript.ru/v1/${this.name}/`;
+   this.login = 'test@domen.com';
+   this.password = '123456';
 
    this.checkCredentials = (login, password) => {
-     if (login.toString() === this.login && password.toString() === this.password) {
+     if (login === this.login && password === this.password) {
        this.isLoggedIn = true;
      } else {
        this.isLoggedIn = false;
      }
-
-     return this.isLoggedIn;
    }
  });
 
  //components
  app.component('login', {
    templateUrl: 'login.html',
-   controller: function($state, $scope, authorizationService) {
+   controller: ['$state', 'authorizationService', function($state, authorizationService) {
      this.submit = () => {
-       if(!$scope.loginForm.$valid) {
-         return;
-       }
-       if(authorizationService.checkCredentials(this.login, this.password)){
+       if(this.login.toString() === authorizationService.login && this.password.toString() === authorizationService.password) {
          $state.go('mailbox.inbox.mails');
        } else {
          alert('Wrong credentials');
        }
      };
-   }
+   }]
  });
 
  app.component('mailbox', {

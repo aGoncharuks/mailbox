@@ -10,6 +10,18 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="//rawgit.com/angular-ui/ui-router/0.3.1/release/angular-ui-router.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCrBhCVwKxYlLcCZEgTqgcmBOrBN9gEjUc",
+        authDomain: "gmail-for-poor.firebaseapp.com",
+        databaseURL: "https://gmail-for-poor.firebaseio.com",
+        storageBucket: "gmail-for-poor.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
     <script>document.write('<base href="' + document.location + '" />');</script>
     <script src="js/script.js"></script>
   </body>

@@ -200,8 +200,26 @@ input.mail-select {
   margin-bottom: 10px;
 }
 
+//sign in form
 
-//commmont
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  min-height: 100vh;
+}
+
+.form-signin {
+  margin: 0 auto;
+}
+
+.form-signin .form-control {
+  margin-bottom: 20px;
+}
+
+
+//commmon
 ul {
   list-style: none;
 }
