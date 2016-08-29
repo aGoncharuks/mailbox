@@ -131,7 +131,8 @@ gulp.task("copy", function() {
       "img/**",
       "bower_components/**",
       "html/**",
-      "*.html"
+      "*.html",
+      "*.ico"
     ], {
       base: "."
     })

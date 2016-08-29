@@ -1,13 +1,13 @@
 <li class="email-item row">
   <a class="email-item-link" ui-sref="mailbox.{{$ctrl.parentStateUrl}}.letter({letterID: $ctrl.mail._id})">
-    <div class="people col-sm-2">
+    <div class="people col-sm-3">
         {{$ctrl.mail.to}}
     </div>
 
     <div class="message message-subject col-sm-2">
       {{$ctrl.mail.subject}}
     </div>
-    <div class="message message-body col-sm-8">
+    <div class="message message-body col-sm-7">
       {{$ctrl.mail.body | limitTo : 70}}...
     </div>
 

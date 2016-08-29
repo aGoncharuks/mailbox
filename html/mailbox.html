@@ -5,38 +5,9 @@
       <ul class="profile-icons list-inline pull-left">
         <li>Alexander Goncharuk</li>
       </ul>
-    </div><!-- profile -->
-
-    <!-- <div class="search-bar col-sm-6">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search for...">
-        <span class="input-group-btn">
-          <button class="btn btn-main">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-      <span class="arrow caret"></span>
-    </div> -->
+    </div>
 
   </header>
-
-  <!-- <div class="control-bar row">
-    <div class="menu col-sm-2">
-
-    </div>
-
-    <div class="controls col-sm-10">
-      <ul class="control-list list-inline">
-        <li>
-          <button class="btn btn-control">
-            <input type="checkbox" class="mail-select">
-            <span class="caret"></span>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div> -->
 
   <div class="mail row" ng-show="!$ctrl.showContacts">
     <div class="sidebar col-sm-2">
@@ -45,21 +16,19 @@
 
       <ul class="inbox-sections list-unstyled">
         <li>
-          <a ui-sref="mailbox.inbox.mails" ng-class="{active: $ctrl.stateIncludesInbox()}">Inbox ({{$ctrl.inboxLettersCount}})</a>
+          <a ui-sref="mailbox.inbox.mails" ng-class="{active: $ctrl.stateIncludesInbox()}">Inbox</a>
         </li>
         <li>
-          <a ui-sref="mailbox.outbox.mails" ng-class="{active: $ctrl.stateIncludesOutbox()}">Outbox ({{$ctrl.outboxLettersCount}})</a>
+          <a ui-sref="mailbox.outbox.mails" ng-class="{active: $ctrl.stateIncludesOutbox()}">Outbox</a>
         </li>
         <li>
-          <a ui-sref="mailbox.contacts" ui-sref-active="active">Contacts ({{$ctrl.usersCount}})</a>
+          <a ui-sref="mailbox.contacts" ui-sref-active="active">Contacts</a>
         </li><br>
       </ul>
-    </div><!-- sidebar -->
+    </div>
 
     <ui-view></ui-view>
 
   </div>
-
-  <!-- <button style="margin: 20px auto; display:block;" id="some-id" ng-click="$ctrl.hideElement('#some-id')" ng-show="!$ctrl.showContacts">JS modules working test: click to hide me</button> -->
 
 </div>
