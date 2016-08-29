@@ -21,15 +21,9 @@ module.exports = ($stateProvider, $urlRouterProvider) => {
    url: '/',
    template: "<mailbox></mailbox>",
    resolve: {
-     mailboxes: function(mailboxService) {
-       return mailboxService.getAllRecords('mailboxes');
-     },
-     letters: function(mailboxService) {
-       return mailboxService.getAllRecords('letters');
-     },
-     users: function(mailboxService) {
-       return mailboxService.getAllRecords('users');
-     }
+     mailboxes: (mailboxService) => mailboxService.getAllRecords('mailboxes'),
+     letters: (mailboxService) => mailboxService.getAllRecords('letters'),
+     users: (mailboxService) =>  mailboxService.getAllRecords('users')
    },
    controller: function($scope, mailboxes, letters, users, mailboxService) {
      mailboxService.inboxID = mailboxes.filter( (mailbox) => mailbox.title === 'inbox')[0]._id;
