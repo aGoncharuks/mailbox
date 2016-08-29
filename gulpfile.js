@@ -23,16 +23,17 @@ var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('browserify', function() {
   return browserify({
-    entries: './js/app.js',
+    entries: './app/app.js',
     debug: true
   })
   .bundle()
   .pipe(plumber())
   .pipe(source('script.js'))
   // .pipe(buffer())
-  // .pipe(sourcemaps.init({loadMaps: true}))
+  // .pipe(sourcemaps.init({loadMapsz: true}))
   // .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('./build/js'))
+  .pipe(gulp.dest('./tests'))
+  .pipe(gulp.dest('./build/app'))
   .pipe(server.reload({stream: true}));
 });
 
@@ -119,7 +120,7 @@ gulp.task("serve", function() {
   // gulp.watch("sass/**/*.{scss,sass}", ["styleForDev"]);
   gulp.watch("sass/**/*.{scss,sass}", ["style"]);
   gulp.watch("*.html", ['html']);
-  gulp.watch("js/**/*.js", ["browserify"]);
+  gulp.watch("*.js", ["browserify"]);
   // gulp.watch("js/**/*.js").on("change", server.reload);
 
 });
@@ -128,7 +129,8 @@ gulp.task("copy", function() {
   return gulp.src([
       "fonts/**/*.{woff,woff2}",
       "img/**",
-      "js/**",
+      "bower_components/**",
+      "html/**",
       "*.html"
     ], {
       base: "."

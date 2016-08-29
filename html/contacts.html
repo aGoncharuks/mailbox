@@ -7,10 +7,10 @@
   </div><!-- sidebar -->
 
 
-  <newcontact show-new-contact-form="$ctrl.showNewContactForm" users="$ctrl.users" ng-show="$ctrl.showNewContactForm"></newcontact>
+  <new-contact show-new-contact-form="$ctrl.showNewContactForm" users="$ctrl.users" ng-show="$ctrl.showNewContactForm"></new-contact>
 
   <ul class="users-list col-sm-10 pull-right">
-    <li ng-repeat="user in $ctrl.users">
+    <li ng-repeat="user in $ctrl.users track by $index">
         <div class="avatar-wrapper col-sm-2">
           <img ng-src="{{user.avatarUrl}}" alt="User avatar" width="100" height="100" class="img-circle">
         </div>

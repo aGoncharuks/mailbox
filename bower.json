@@ -1,0 +1,25 @@
+{
+  "name": "mailbox",
+  "description": "Poor man's Gmail:)",
+  "main": "",
+  "authors": [
+    "Alexander Goncharuk"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/aGoncharuks/mailbox",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "firebase": "^3.3.0",
+    "angularfire": "^2.0.2"
+  }
+}

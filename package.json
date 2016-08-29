@@ -10,6 +10,7 @@
   },
   "homepage": "https://github.com/aGoncharuks/mailbox",
   "devDependencies": {
+    "angular-mocks": "^1.5.8",
     "autoprefixer": "6.3.6",
     "browser-sync": "2.12.10",
     "browserify": "^13.0.1",
@@ -26,6 +27,11 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
     "run-sequence": "^1.2.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
@@ -39,7 +45,6 @@
     "node": "5.11"
   },
   "dependencies": {
-    "angular": "^1.5.8",
     "normalize.scss": "^0.1.0"
   }
 }

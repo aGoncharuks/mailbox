@@ -1,6 +1,6 @@
 <div class="inbox col-sm-10">
   <ul class="list-unstyled">
-    <ul class="list-unstyled" ng-repeat="mail in $ctrl.mails">
+    <ul class="list-unstyled" ng-repeat="mail in $ctrl.mails  track by $index">
       <mail mail="mail"></mail>
     </ul>
   </ul>
